@@ -4,6 +4,8 @@ This project runs the original LabelTD Visual Basic 6 game source in a browser. 
 
 The game opens straight on Map 1 at the original Average difficulty (10 lives). The launch and in-game menus are omitted, as is the map editor.
 
+The interpreter applies the Windows timer minimum of 10 ms. This keeps the original 1 ms combat timer and 10 ms movement timer at the same cadence, rather than giving towers ten combat updates per movement step. An interval of zero disables a timer.
+
 ## Run
 
 ```sh

@@ -94,6 +94,34 @@ test('source controls build, cancellation, and timed enemy movement', () => {
   assert.equal(enemy.properties.Top, before + 200);
 });
 
+test('Windows timer minimum keeps combat and movement at the same cadence', () => {
+  const vm = createVM();
+  vm.start();
+  vm.dispatch('CmdLife10', 'Click', undefined);
+  vm.dispatch('lblGo', 'Click', undefined);
+  const counts = { Timer1: 0, Timer2: 0 };
+  const dispatch = vm.dispatch.bind(vm);
+  vm.dispatch = (name, event, index, args) => {
+    if (event === 'Timer') counts[name]++;
+    dispatch(name, event, index, args);
+  };
+
+  vm.advance(9);
+  assert.deepEqual(counts, { Timer1: 0, Timer2: 0 });
+  vm.advance(1);
+  assert.deepEqual(counts, { Timer1: 1, Timer2: 1 });
+  vm.advance(90);
+  assert.deepEqual(counts, { Timer1: 10, Timer2: 10 });
+
+  // Longer intervals retain their requested cadence; zero disables a timer.
+  vm.controls.find('Timer2').properties.Interval = 25;
+  vm.advance(50);
+  assert.deepEqual(counts, { Timer1: 15, Timer2: 12 });
+  vm.controls.find('Timer2').properties.Interval = 0;
+  vm.advance(50);
+  assert.deepEqual(counts, { Timer1: 20, Timer2: 12 });
+});
+
 test('the original C handler cancels a pending tower before a different build', () => {
   const vm = createVM();
   vm.start();

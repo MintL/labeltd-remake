@@ -148,7 +148,15 @@ export class VbVM {
           this.timerElapsed.set(timer, 0);
           continue;
         }
-        const interval = Math.max(1, vbNumber(getControlProperty(timer, 'Interval')));
+        const requestedInterval = vbNumber(getControlProperty(timer, 'Interval'));
+        if (requestedInterval <= 0) {
+          this.timerElapsed.set(timer, 0);
+          continue;
+        }
+        // VB6 uses Windows message timers, whose minimum interval is 10 ms.
+        // Honoring Timer2's 1 ms literally gives towers ten combat updates
+        // for every enemy movement update and changes the game's balance.
+        const interval = Math.max(10, requestedInterval);
         const elapsed = (this.timerElapsed.get(timer) ?? 0) + 1;
         if (elapsed >= interval) {
           this.timerElapsed.set(timer, 0);
