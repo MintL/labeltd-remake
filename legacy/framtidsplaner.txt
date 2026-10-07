@@ -1,0 +1,20 @@
+WEBSITE:
+	INFORMATION
+	SCREENSHOTS
+	DOWNLOAD
+		-http, full
+		-http, source
+			-oldversions
+		-torrent, full
+		-torrent, source
+	ARCHIVE
+		-maps, official
+		-maps, users
+		-names, default + users
+		UPLOAD
+			-maps < 10kb
+			-names < 10kb
+	FAQ
+		-known bugs
+		-contact us, form
+	CREDITS

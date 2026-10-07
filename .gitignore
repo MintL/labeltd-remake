@@ -1,0 +1,9 @@
+.DS_Store
+*.vbw
+/legacy/VB34.tmp
+/web/node_modules/
+/web/dist/
+/web/.vite-cache/
+/web/public/legacy/
+/web/labeltd-*.jpg
+/web/labeltd-*.png

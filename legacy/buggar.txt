@@ -1,0 +1,6 @@
+'mobolvl2 står att den kostar 100g, kostar dock 50g
+'för mkt cash för att döda hi-lvl mobs
+'om man placerar ut ett frost tower så kan det frosta innan man betalat
+'om man placerar ett lazer så kan det göra att ett anant lazer får dess räckvidd och skjuter
+(02:31:42) Erik: märkte just att om man har frost tower och dom stunnar någon obörjan så börjar fire tower cpa och inte ta någon skada alls nästan, losa pga av det nu, segt xD
+om man inte har map/names-filerna så finns det inbyggda standard i .exe

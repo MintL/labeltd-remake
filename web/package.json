@@ -1,0 +1,23 @@
+{
+  "name": "labeltd-vb6-interpreter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/sync-legacy.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/sync-legacy.mjs",
+    "build": "tsc --noEmit && vite build",
+    "build:pages": "npm run build -- --mode pages",
+    "preview:pages": "vite preview --mode pages --host 127.0.0.1",
+    "pretest": "node scripts/sync-legacy.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "0.186.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.2"
+  }
+}

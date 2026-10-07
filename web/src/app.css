@@ -1,0 +1,3 @@
+.startup-status, .startup-error { color: #dce6ef; font: 16px Arial, sans-serif; }
+.startup-error { color: #ffd6d6; white-space: pre-wrap; }
+.runtime-error { position: fixed; left: 12px; right: 12px; bottom: 12px; max-height: 35vh; overflow: auto; z-index: 100; padding: 12px; color: #ffd6d6; background: #430e18ee; border: 1px solid #d86b79; white-space: pre-wrap; }

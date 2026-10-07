@@ -1,0 +1,2 @@
+# Keep the original Windows-1252 VB6 files and CRLF map data byte-for-byte.
+/legacy/** -text
